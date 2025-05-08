@@ -1,11 +1,11 @@
-# 저장소 디렉토리 생성
-sudo mkdir -p /etc/apt/keyrings
-
-# 키 다운로드 및 저장
-curl -fsSL https://keys.gnupg.net/pks/lookup?op=get&search=0x36879494 | sudo gpg --dearmor -o /etc/apt/keyrings/qubes-os-archive-keyring.gpg
-
-# 저장소 추가
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/qubes-os-archive-keyring.gpg] https://deb.qubes-os.org/r4.2/vm noble main" > /etc/apt/sources.list.d/qubes-r4.2.list'
-
-# 업데이트
+# XFCE 환경 설치
 sudo apt update
+sudo apt install -y xfce4 xfce4-terminal xfce4-notifyd network-manager-gnome
+
+# 심리스 모드 지원 폴더 생성
+sudo mkdir -p /etc/qubes-rpc
+
+# 필요한 스크립트 생성
+sudo bash -c 'echo "#!/bin/bash" > /etc/qubes-rpc/qubes.WindowIconUpdater'
+sudo bash -c 'echo "true" >> /etc/qubes-rpc/qubes.WindowIconUpdater'
+sudo chmod +x /etc/qubes-rpc/qubes.WindowIconUpdater
