@@ -1,1 +1,1 @@
-sudo apt install -y xen-utils-common xfce4-terminal git curl wget
+sudo apt install -y pulseaudio pavucontrol network-manager-gnome xclip
